@@ -9,21 +9,21 @@ Etherpad is a really-real time collaborative editor scalable to thousands of sim
 # Installation
 
 ## Requirements
-- `nodejs` >= **6.9.0** (preferred: `nodejs` >= **8.9**)
+- `nodejs` >= **8.9.0**
 
 ## Uber-Quick Ubuntu
 ```
 curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
 sudo apt-get install -y nodejs
-git clone https://github.com/ether/etherpad-lite.git && cd etherpad-lite && bin/run.sh
+git clone --branch master https://github.com/ether/etherpad-lite.git && cd etherpad-lite && bin/run.sh
 ```
 
 ## GNU/Linux and other UNIX-like systems
-You'll need git and [node.js](https://nodejs.org) installed (minimum required Node version: **6.9.0**, preferred: >= **8.9**).
+You'll need git and [node.js](https://nodejs.org) installed (minimum required Node version: **8.9.0**).
 
 **As any user (we recommend creating a separate user called etherpad):**
 
-1. Move to a folder where you want to install Etherpad. Clone the git repository: `git clone git://github.com/ether/etherpad-lite.git`
+1. Move to a folder where you want to install Etherpad. Clone the git repository: `git clone --branch master git://github.com/ether/etherpad-lite.git`
 2. Change into the new directory containing the cloned source code: `cd etherpad-lite`
 3. run `bin/run.sh` and open <http://127.0.0.1:9001> in your browser.
 
@@ -36,7 +36,7 @@ To update to the latest released version, execute `git pull origin`. The next st
 ### Prebuilt Windows package
 This package works out of the box on any windows machine, but it's not very useful for developing purposes...
 
-1. [Download the latest Windows package](http://etherpad.org/#download)
+1. [Download the latest Windows package](https://etherpad.org/#download)
 2. Extract the folder
 
 Now, run `start.bat` and open <http://localhost:9001> in your browser. You like it? [Next steps](#next-steps).
@@ -46,7 +46,7 @@ You'll need [node.js](https://nodejs.org) and (optionally, though recommended) g
 
 1. Grab the source, either
   - download <https://github.com/ether/etherpad-lite/zipball/master>
-  - or `git clone https://github.com/ether/etherpad-lite.git` (for this you need git, obviously)
+  - or `git clone --branch master https://github.com/ether/etherpad-lite.git` (for this you need git, obviously)
 2. start `bin\installOnWindows.bat`
 
 Now, run `start.bat` and open <http://localhost:9001> in your browser.
@@ -65,6 +65,7 @@ If cloning to a subdirectory within another project, you may need to do the foll
 You can modify the settings in `settings.json`.
 If you need to handle multiple settings files, you can pass the path to a settings file to `bin/run.sh` using the `-s|--settings` option: this allows you to run multiple Etherpad instances from the same installation.
 Similarly, `--credentials` can be used to give a settings override file, `--apikey` to give a different APIKEY.txt file and `--sessionkey` to give a non-default SESSIONKEY.txt.
+**Each configuration parameter can also be set via an environment variable**, using the syntax `"${ENV_VAR}"` or `"${ENV_VAR:default_value}"`. For details, refer to `settings.json.template`.
 Once you have access to your /admin section settings can be modified through the web browser.
 
 You should use a dedicated database such as "mysql", if you are planning on using etherpad-in a production environment, since the "dirtyDB" database driver is only for testing and/or development purposes.
@@ -123,7 +124,7 @@ Visit the **[FAQ](https://github.com/ether/etherpad-lite/wiki/FAQ)**.
 
 # Donate!
 * [Flattr](https://flattr.com/thing/71378/Etherpad-Foundation)
-* Paypal - Press the donate button on [etherpad.org](http://etherpad.org)
+* Paypal - Press the donate button on [etherpad.org](https://etherpad.org)
 * [Bitcoin](https://coinbase.com/checkouts/1e572bf8a82e4663499f7f1f66c2d15a)
 
 All donations go to the Etherpad foundation which is part of Software Freedom Conservency
